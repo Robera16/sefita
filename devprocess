@@ -1,0 +1,21 @@
+development process
+1, 
+	create folder
+	install(initialize) django using (pipenv install django->generates 'Pipfile,Pipfile.lock like npm)
+	activate virtual environment using (pipenv shell)
+	install django using sudo apt install django
+	create django app with some boilerplate code using(django-admin startproject sefita .)
+2, 	
+	manage.py->adminstrative purpose, starting webserver,migrating database,populating with data
+	sefita - app
+		init.py - treat app as a package
+		settings.py - configuration setting for sefita app
+		urls.py - url endpoints for our application
+		wsgi.py - standard web server gateway interface
+3, 
+	change the default python interprater to the virtual environment interpreter
+	install pylint using (pipenv install pylint --dev)
+	python3 manage.py runserver (runs on port 8000 by default) - it creates sqlite database
+	admin route doesn't work because there is unapplied migration
+4,
+	in django there are multiple application which represent different part of our web application(based on fuctionality
