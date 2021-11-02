@@ -1,0 +1,48 @@
+development process
+1, 
+	create folder
+	install(initialize) django using (pipenv install django->generates 'Pipfile,Pipfile.lock like npm)
+	activate virtual environment using (pipenv shell)
+	install django using sudo apt install django
+	create django app with some boilerplate code using(django-admin startproject sefita .)
+2, 	
+	manage.py->adminstrative purpose, starting webserver,migrating database,populating with data
+	sefita - app
+		init.py - treat app as a package
+		settings.py - configuration setting for sefita app
+		urls.py - url endpoints for our application
+		wsgi.py - standard web server gateway interface
+3, 
+	change the default python interprater to the virtual environment interpreter
+	install pylint using (pipenv install pylint --dev)
+	python3 manage.py runserver (runs on port 8000 by default) - it creates sqlite database
+	admin route doesn't work because there is unapplied migration
+4,
+	in django there are multiple application which represent different part of our web application(based on fuctionality)
+	the apps are reusable in other projects
+5,
+	python3 manage.py startapp records
+	records - app
+		models.py - represent domain of records(ex,in domain of movies we have movie and genre)
+		views.py - view function which pass url to view function which handle request and respond
+		mvc - mtv  template as view, and views as controller in django 
+6,
+	create urls.py which handle a url endpoint to records app
+	every app should have a url configuration
+	inside views module(views.py) of records define a function which responds to certain endpoint request.
+		ex, index func -> HttpResponse('hello world')
+	sefita(main app) have no knowldge of records path, so we have to register it using a path object inside sefitaurl
+	then run server again using(python3 manage.py runserver)
+	urls in Records maps a url endpoint to view function
+	urls in sefita(main app) register certain endpoint to app urls(ex localhost/records, to Records.urls)
+7,
+	create model to represent application data
+	in model.py module of Records app create a class which models component of Records app	
+	class Record(models.Model) - from django.db import models, this models module handle storing,retrieving, filtering and other operation on database to Record(class) object
+8,
+	store model object in database(create table on database based on the model object)
+	django first compare model class with database table based on that it creates a migration.py when it runs it synchronize database table with model class(python3 manage.py makemigrations). but by default django is not aware of model classes. 
+	to make django keep track of model classes register Records app in sefita(main app) settings.py INSTALLED_APPS
+	   -- to register the Records app in django we have to make full path of RecordsConfig class inside apps.py of Records app
+	
+	
