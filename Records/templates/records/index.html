@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Ref</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for record in records%}
+    <tr>
+      <td>
+        <a href="{%url 'records_detail' record.id%}">{{ record.Name }}</a>
+      </td>
+      <td>{{ record.Phone }}</td>
+      <td>{{ record.Ref }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

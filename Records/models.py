@@ -3,11 +3,15 @@ from django.db.models.deletion import CASCADE
 from django.utils import timezone
 
 class NeckOpening(models.Model):
-    opt = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+   
+    def __str__(self):
+        return self.name
 
 
 class Record(models.Model):
-    Phone = models.IntegerField()
+    Name = models.CharField(max_length=255, default='')
+    Phone = models.CharField(max_length=255)
     Ref = models.IntegerField()
     Style = models.CharField(max_length=255)
     DateOfOrderTaken = models.DateTimeField(default=timezone.now)
@@ -24,10 +28,15 @@ class Record(models.Model):
     Waist = models.CharField(max_length=255)
     WaistToHip = models.CharField(max_length=255)
     WaistToLength = models.CharField(max_length=255)
-    Neck_Opening = models.ForeignKey(NeckOpening, on_delete=models.SET_NULL)
+    Neck_Opening = models.ForeignKey(NeckOpening, on_delete=models.CASCADE)
     SleeveLength = models.CharField(max_length=255)
     Cuff = models.CharField(max_length=255)
     Hip = models.CharField(max_length=255)
-    Photo = models.ImageField()
+    #Photo = models.FileField(blank=True)
     NB = models.TextField()
+
+    def __str__(self):
+        return self.Name
    
+   
+ 
