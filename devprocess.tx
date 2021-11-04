@@ -96,8 +96,8 @@ development process
 	to create a homepage:
 		- create views.py inside sefita app
 	
-	
-	
+		Python3 push heroku HEAD:master
+			
 	
 	
 	
