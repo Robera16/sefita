@@ -1,0 +1,1 @@
+web: gunicorn sefita.wsgi

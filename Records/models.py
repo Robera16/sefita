@@ -8,7 +8,6 @@ class NeckOpening(models.Model):
     def __str__(self):
         return self.name
 
-
 class Record(models.Model):
     Name = models.CharField(max_length=255, default='')
     Phone = models.CharField(max_length=255)
@@ -32,11 +31,12 @@ class Record(models.Model):
     SleeveLength = models.CharField(max_length=255)
     Cuff = models.CharField(max_length=255)
     Hip = models.CharField(max_length=255)
-    #Photo = models.FileField(blank=True)
+    Image = models.FileField(blank=True)
     NB = models.TextField()
 
     def __str__(self):
         return self.Name
    
-   
- 
+class PostImage(models.Model):
+    record = models.ForeignKey(Record, default=None, on_delete=models.CASCADE)
+    images = models.FileField(upload_to = 'images/')
