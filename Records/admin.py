@@ -17,6 +17,9 @@ class PostImageAdmin(admin.StackedInline):
 class PostAdmin(admin.ModelAdmin):
     inlines = [PostImageAdmin]
     exclude=('Image', )
+    list_display = ('Name', 'Phone', 'DateOfOrderTaken','DateOfDelivery')
+    search_fields=('Name', 'DateOfDelivery')
+
 
     class Meta:
        model = Record

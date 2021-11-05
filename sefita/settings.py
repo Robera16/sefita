@@ -26,7 +26,7 @@ SECRET_KEY = '3mdz5uxmx0qiaah6h(6i)zf0=c+22q9v&05a_&n6fnp&uh18=^'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'polar-cliffs-84271.herokuapp.com'
+    #'polar-cliffs-84271.herokuapp.com'
 ]
 
 
